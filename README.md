@@ -4,14 +4,6 @@
 
 Contains the definitions of the custom types (model) used across the readium-2 Kotlin projects.
 
-## Adding the library to your Android project
-
-### Git Submodule
-
-
-### Gradle implementation
-
-
-##### Android Module Import
+This version removes or replaces any Android dependencies so the shared model can be used in desktop Kotlin applications
 
 
