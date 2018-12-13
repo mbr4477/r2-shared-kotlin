@@ -1,30 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.10'
+}
+group 'com.matthewrussell'
+version '0.1-SNAPSHOT'
 
-buildscript {
-    ext.kotlin_version = '1.2.61'
-    ext.support_version = '27.1.1'
+sourceCompatibility = 1.8
 
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+repositories {
+    google()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://jitpack.io' }
-    }
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.json:json:20180813"
+    implementation "com.github.kittinunf.fuel:fuel:1.16.0"
+    implementation 'nl.komponents.kovenant:kovenant:3.3.0'
+    implementation "joda-time:joda-time:2.10"
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
 }
